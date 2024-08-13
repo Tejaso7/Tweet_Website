@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title%}
+ tweet here
+{% endblock %}
+
+{% block content %}
+<div class="p-2 m-2" >
+<h1 class="text-center m-3 ">Welcome to Diwad's Tweet </h1>
+
+<a class="btn btn-primary mb-4 p-2" href="{% url 'tweet_create' %}">Create a tweet</a>
+<div class="container row gap-3">
+{% for tweet in tweets %}
+<div class="card" style="width: 18rem;" >
+  {% if tweet.photo %}
+  <img src="{{ tweet.photo.url }}" alt="Tweet Photo">
+{% else %}
+  <img src="Tweet/media/photo/x.jpg" alt="Default Photo">
+{% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{tweet.user.username}}</h5>
+      <p class="card-text">{{tweet.text}}.</p>
+
+      {% if tweet.user == user %}
+      <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">delete</a>
+      {% endif %}
+    
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}
