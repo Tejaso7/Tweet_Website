@@ -1,5 +1,6 @@
 # Tweet Website
 
+<img src="img/Screenshot 2024-08-13 223725.png" ></img>
 This is a Django-based tweet website that allows users to create, view, and interact with tweets. The platform is designed to replicate the core functionalities of social media, offering a simple and intuitive interface for users to share short messages and images.
 
 ## Table of Contents
